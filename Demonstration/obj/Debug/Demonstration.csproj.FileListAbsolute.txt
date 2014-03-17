@@ -1,0 +1,22 @@
+c:\users\эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\bin\Debug\Demonstration.exe.config
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\obj\Debug\MainWindow.baml
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\obj\Debug\MainWindow.g.cs
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\obj\Debug\App.g.cs
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\obj\Debug\Demonstration_MarkupCompile.cache
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\obj\Debug\Demonstration.g.resources
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\obj\Debug\Demonstration.Properties.Resources.resources
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\obj\Debug\Demonstration.csproj.GenerateResource.Cache
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\bin\Debug\Demonstration.exe
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\bin\Debug\Demonstration.pdb
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\bin\Debug\WPF3D.dll
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\bin\Debug\Model.dll
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\bin\Debug\3DModelParser.dll
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\bin\Debug\WPF3D.pdb
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\bin\Debug\Model.pdb
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\bin\Debug\3DModelParser.pdb
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\obj\Debug\Demonstration.csprojResolveAssemblyReference.cache
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\obj\Debug\Demonstration.exe
+C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\Demonstration\obj\Debug\Demonstration.pdb
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\Demonstration\bin\Debug\Demonstration.exe.config
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\Demonstration\obj\Debug\Demonstration.exe
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\Demonstration\obj\Debug\Demonstration.pdb
