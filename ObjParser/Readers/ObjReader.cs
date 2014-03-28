@@ -12,7 +12,7 @@ namespace Parser.Readers
         public List<List<string>> Read(string path)
         {
             List<List<string>> list = new List<List<string>>();
-            StreamReader sr = new StreamReader(path);//делить листы по слову object
+            StreamReader sr = new StreamReader(path);
             //так же учитывать что может присутствовать mtlib
             int i = 0;
             string buff;

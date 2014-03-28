@@ -7,3 +7,12 @@ C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\WPF3D\bi
 C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\WPF3D\bin\Debug\3DModelParser.pdb
 C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\WPF3D\obj\Debug\WPF3D.dll
 C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\WPF3D\obj\Debug\WPF3D.pdb
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\WPF3D\bin\Debug\WPF3D.dll
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\WPF3D\bin\Debug\WPF3D.pdb
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\WPF3D\bin\Debug\3DModelParser.dll
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\WPF3D\bin\Debug\Model.dll
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\WPF3D\bin\Debug\Model.pdb
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\WPF3D\bin\Debug\3DModelParser.pdb
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\WPF3D\obj\Debug\WPF3D.csprojResolveAssemblyReference.cache
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\WPF3D\obj\Debug\WPF3D.dll
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\WPF3D\obj\Debug\WPF3D.pdb

@@ -5,3 +5,10 @@ C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\ObjParse
 C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\ObjParser\bin\Debug\Model.pdb
 C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\ObjParser\obj\Debug\3DModelParser.dll
 C:\Users\Эмиль\documents\visual studio 2012\Projects\CourseProject\ObjParser\obj\Debug\3DModelParser.pdb
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\bin\Debug\3DModelParser.dll
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\bin\Debug\3DModelParser.pdb
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\bin\Debug\Model.dll
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\bin\Debug\Model.pdb
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\obj\Debug\3DModelParser.csprojResolveAssemblyReference.cache
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\obj\Debug\3DModelParser.dll
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\obj\Debug\3DModelParser.pdb

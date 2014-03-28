@@ -34,19 +34,32 @@ namespace Demonstration
 
         public void draw()
         {
-            o = new Object3D("1.obj");
+            o = new Object3D("33.obj");
             c = new Camera3D(mainViewport.Camera);
 
             o.Draw(mainViewport);
                 
-                timer.Tick += new EventHandler(timerTick);
-                timer.Interval = new TimeSpan(0, 0, 0, 0, 40);
-                timer.Start();
+               // timer.Tick += new EventHandler(timerTick);
+               // timer.Interval = new TimeSpan(0, 0, 0, 0, 40);
+               // timer.Start();
         }
 
         private void timerTick(object sender, EventArgs e)
         {
             c.RotateRelative(1, 1, 1);
+        }
+
+        private void Window_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.Key.ToString() == "W") { c.RotateRelative(1, 0, 0); }
+            if (e.Key.ToString() == "S") { c.RotateRelative(-1, 0, 0); }
+            if (e.Key.ToString() == "A") { c.RotateRelative(0, -1, 0); }
+            if (e.Key.ToString() == "D") { c.RotateRelative(0, 1, 0); }
+            if (e.Key.ToString() == "Z") { c.MoveByDirection(-1); }
+            if (e.Key.ToString() == "X") { c.MoveByDirection(1); }
+            if (e.Key.ToString() == "Q") { o.RotateRelative(1, 0, 0); }
+            if (e.Key.ToString() == "E") { o.RotateRelative(0, 1, 0); }
+            if (e.Key.ToString() == "R") { o.RotateRelative(0, 0, 1); }
         }
 
     }

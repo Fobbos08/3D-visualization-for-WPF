@@ -17,7 +17,9 @@ namespace Parser.Parcers
         public _3DModel[] Parce(List<List<string>> model)
         {
             int start;
-            string[] buff = model[0][0].Split(' ');
+            string[] buff = { "" };
+            if (model[0].Count!=0)
+            buff = model[0][0].Split(' ');
             if (buff[0] == "mtllib")
             {
                 models = new _3DModel[model.Count - 1];
@@ -35,6 +37,7 @@ namespace Parser.Parcers
                 normals = NormalsParce(model[i]);
                 models[index] = new _3DModel();
                 models[index].AddTriangles(TriangleParce(model[i]));
+                models[index].AddPoints(points);
                 index++;
             }
 

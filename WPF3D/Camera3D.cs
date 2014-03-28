@@ -37,25 +37,27 @@ namespace WPF3D
         }
         public void MoveByDirection(float speed)
         {
-            direct = camera.LookDirection;
-            if (direct.X!=0)
-                direct.X = direct.X / Math.Abs(direct.X);
-            if (direct.Y != 0)
-                direct.Y = direct.Y / Math.Abs(direct.Y);
-            if (direct.Z != 0)
-                direct.Z = direct.Z / Math.Abs(direct.Z);
+            direct.X = camera.LookDirection.X;
+            direct.Y = camera.LookDirection.Y;
+            direct.Z = camera.LookDirection.Z;
+            direct.Normalize();
             pos = camera.Position;
             pos.X += direct.X * speed;
             pos.Y += direct.Y * speed;
             pos.Z += direct.Z * speed;
+            /*
+            Vector3D d = new Vector3D();
+            d.X = camera.LookDirection.X + direct.X * speed;
+            d.Y = camera.LookDirection.Y + direct.Y * speed;
+            d.Z = camera.LookDirection.Z + direct.Z * speed;
+            camera.LookDirection = d;*/
             camera.Position = pos;
         }
-
         public void RotateRelative(float angleX, float angleY, float angleZ)
         {
-           
-            camera.LookDirection = rotater.Rotate(camera.LookDirection, camera.Position, angleX, angleY, angleZ); 
-           // direct.
+
+            camera.LookDirection = rotater.Rotate(camera.LookDirection, camera.Position, angleX, angleY, angleZ);
+
         }
 
     }

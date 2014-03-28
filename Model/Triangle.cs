@@ -26,6 +26,9 @@ namespace Model
             trianglePoints[0] = p0;
             trianglePoints[1] = p1;
             trianglePoints[2] = p2;
+            normalePoints[0] = normalP0;
+            normalePoints[1] = normalP1;
+            normalePoints[2] = normalP2;
         }
 
         public Point3D GetPoint(int index)
@@ -35,26 +38,20 @@ namespace Model
             throw new System.ArgumentException("Accept value 0,1,2");
         }
 
-        public void Draw(Viewport3D viewport)//доработать на предмет отмены отображения и модификации
+        public Vector3D GetNormal(int index)
         {
-            MeshGeometry3D mesh = new MeshGeometry3D();
-            mesh.Positions.Add(trianglePoints[0]);
-            mesh.Positions.Add(trianglePoints[1]);
-            mesh.Positions.Add(trianglePoints[2]);
-           
-            mesh.TriangleIndices.Add(0);
-            mesh.TriangleIndices.Add(1);
-            mesh.TriangleIndices.Add(2);
-
-            SolidColorBrush brush = new SolidColorBrush();
-            brush.Color = Colors.Chocolate;
-            Material material = new DiffuseMaterial(brush);
-
-            GeometryModel3D geometry = new GeometryModel3D(mesh, material);
-            ModelUIElement3D model = new ModelUIElement3D();
-            model.Model = geometry;
-
-            viewport.Children.Add(model);
+            if (index >= 0 && index <= 2)
+                return normalePoints[index];
+            throw new System.ArgumentException("Accept value 0,1,2");
         }
+
+
+        public void Move(Vector3D v)
+        {
+            trianglePoints[0] += v;
+            trianglePoints[1] += v;
+            trianglePoints[2] += v;
+        }
+        
     }
 }

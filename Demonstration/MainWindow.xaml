@@ -1,14 +1,14 @@
 ﻿<Window x:Class="Demonstration.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" KeyDown="Window_KeyDown_1">
     <Grid>
-    <Viewport3D Name="mainViewport" ClipToBounds="True" Height="374">
+    <Viewport3D Name="mainViewport" ClipToBounds="True" Margin="0,0,0,-54" >
         <Viewport3D.Camera>
             <PerspectiveCamera
-                        FarPlaneDistance="100"
+                        FarPlaneDistance="1000"
                         LookDirection="0,0,-140"
-                 
+                        UpDirection="0,1,0"
                         NearPlaneDistance="1"
                         Position="0,0,140"
                         FieldOfView="70"/>
