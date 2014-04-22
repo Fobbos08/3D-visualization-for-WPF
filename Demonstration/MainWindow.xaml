@@ -21,6 +21,7 @@
             </ModelVisual3D.Content>
         </ModelVisual3D>
     </Viewport3D>
+        <Label Name="FPSLabel" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
     </Grid>
     
 </Window>

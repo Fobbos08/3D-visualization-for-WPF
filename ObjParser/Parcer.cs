@@ -12,6 +12,7 @@ namespace Parser
         private IParcer parcer;
         private IReader reader;
 
+
         public _3DModel[] Parce(string path)
         {
             reader = new Readers.Reader(new Readers.ObjReader());

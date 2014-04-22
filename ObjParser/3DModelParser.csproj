@@ -46,8 +46,10 @@
     <Compile Include="IParcer.cs" />
     <Compile Include="IReader.cs" />
     <Compile Include="Parcer.cs" />
+    <Compile Include="Parcers\MtlParser.cs" />
     <Compile Include="Parcers\ObjParcer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Readers\MtlReader.cs" />
     <Compile Include="Readers\ObjReader.cs" />
     <Compile Include="Parcers\Parcer.cs" />
     <Compile Include="Readers\Reader.cs" />

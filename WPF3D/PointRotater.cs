@@ -13,9 +13,9 @@ namespace WPF3D
         {
             Point3D p = new Point3D();
             double[] coordinate = new double[3];
-            coordinate[0] = point.X;
-            coordinate[1] = point.Y;
-            coordinate[2] = point.Z;
+            coordinate[0] = point.X - offset.X;
+            coordinate[1] = point.Y - offset.Y;
+            coordinate[2] = point.Z - offset.Z;
             double[] angles = new double[3];
             angles[0] = angleX * Math.PI / 180;
             angles[1] = angleY * Math.PI / 180;
@@ -23,9 +23,9 @@ namespace WPF3D
             coordinate = RotateX(coordinate, angles);
             coordinate = RotateY(coordinate, angles);
             coordinate = RotateZ(coordinate, angles);
-            p.X = coordinate[0];
-            p.Y = coordinate[1];
-            p.Z = coordinate[2];
+            p.X = coordinate[0] + offset.X;
+            p.Y = coordinate[1] + offset.Y;
+            p.Z = coordinate[2] + offset.Z;
             return p;
         }
 

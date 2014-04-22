@@ -14,7 +14,7 @@ namespace Parser.Parcers
         private List<Point3D> points;
         private List<Vector3D> normals;
         
-        public _3DModel[] Parce(List<List<string>> model)
+        public _3DModel[] Parce(List<List<string>> model)/////селать вызов mtl/ отличный от вызова из this, будет правильнее
         {
             int start;
             string[] buff = { "" };
