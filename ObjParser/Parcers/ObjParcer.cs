@@ -12,6 +12,7 @@ namespace Parser.Parcers
     {
         private _3DModel[] models;
         private List<Point3D> points;
+        private List<Point3D> texturePoints;
         private List<Vector3D> normals;
         
         public _3DModel[] Parce(List<List<string>> model)/////селать вызов mtl/ отличный от вызова из this, будет правильнее
@@ -35,6 +36,7 @@ namespace Parser.Parcers
             {
                 points = PointsParce(model[i]);
                 normals = NormalsParce(model[i]);
+                texturePoints = TexturePointsParce(model[i]);
                 models[index] = new _3DModel();
                 models[index].AddTriangles(TriangleParce(model[i]));
                 models[index].AddPoints(points);
@@ -97,6 +99,36 @@ namespace Parser.Parcers
             return normals;
         }
 
+        private List<Point3D> TexturePointsParce(List<string> model)
+        {
+            string[] str;
+            texturePoints = new List<Point3D>();
+            int index = 0;
+            foreach (var s in model)
+            {
+                str = s.Split(' ');
+                if (str[0] == "vt")
+                {
+                    try
+                    {
+                        texturePoints.Add(new Point3D(float.Parse(str[1].Replace(".", ",")), float.Parse(str[2].Replace(".", ",")), float.Parse(str[3].Replace(".", ","))));
+                        //  model.RemoveAt(index);
+                    }
+                    catch (Exception e)
+                    {
+                        int a = 0;
+                        a++;
+                        //  model.RemoveAt(index);
+                    }
+                }
+                else
+                {
+                    index++;
+                }
+            }
+            return texturePoints;
+        }
+
         private List<Triangle> TriangleParce(List<string> model)
         {
             // f 1/1/1 2/2/1 3/3/1 
@@ -104,14 +136,19 @@ namespace Parser.Parcers
             List<Triangle> triangles = new List<Triangle>();
             int index = 0;
             int[,] param = new int[3,3];
+            string mtl = "";
             foreach (var s in model)
             {
                 str = s.Split(' ');
+                if (str[0] == "usemtl")
+                {
+                    mtl = str[1];
+                }
                 if (str[0] == "f")
                 {
                     try
                     {
-                        for (int i = 0; i < 3; i++)
+                        for (int i = 0; i < 3; i++)//пробит вариант на 3
                         {
                             string[] buff = str[i+1].Split('/');
                             if (buff.Length == 3)
@@ -122,11 +159,15 @@ namespace Parser.Parcers
                             }
                         }
                         triangles.Add(new Triangle(points[param[0, 0]-1], points[param[1, 0]-1], points[param[2, 0]-1],
-                            normals[param[0, 2]-1], normals[param[1, 2]-1], normals[param[2, 2]-1]));
+                            normals[param[0, 2]-1], normals[param[1, 2]-1], normals[param[2, 2]-1],
+                            texturePoints[param[0, 1] - 1], texturePoints[param[1, 1] - 1], texturePoints[param[2, 1] - 1]));
+                        triangles[triangles.Count - 1].Mtl = mtl;//!!!!!!!!!!!!!
                        // model.RemoveAt(index);
                     }
                     catch (Exception e)
                     {
+                        int a = 0;
+                        a++;
                         //model.RemoveAt(index);
                     }
                 }

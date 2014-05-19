@@ -10,6 +10,8 @@ using Model;
 using Parser;
 using System.Windows.Controls;
 using System.Numerics;
+using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace WPF3D//так же сделать манипулируемый источник света
 {
@@ -18,9 +20,11 @@ namespace WPF3D//так же сделать манипулируемый ист�
         private _3DModel[] arrayModel;
         public Point3D Center{ get; private set; }
         private MeshGeometry3D[] mesh;
-        private ModelUIElement3D[] model;
+        private List<ModelUIElement3D> model = new List<ModelUIElement3D>();
+        //private ModelUIElement3D[] model;
         private PointRotater rotater = new PointRotater();
-        private Color color = Colors.Chocolate;
+        private Color color = Colors.Chartreuse;
+        private bool setColor = false;
 
         private float angleX = 0;
         private float angleY = 0;
@@ -47,7 +51,8 @@ namespace WPF3D//так же сделать манипулируемый ист�
             Parcer parcer = new Parcer();
             arrayModel = parcer.Parce(path);
             mesh = new MeshGeometry3D[arrayModel.Length];
-            model = new ModelUIElement3D[arrayModel.Length];
+            //model = new ModelUIElement3D[arrayModel.Length];
+            model = new List<ModelUIElement3D>();
             double x=0;
             double y=0;
             double z=0;
@@ -112,6 +117,19 @@ namespace WPF3D//так же сделать манипулируемый ист�
                         mesh[i].Positions.Add(t.GetPoint(1));
                         mesh[i].Positions.Add(t.GetPoint(2));
 
+                        Point p0 = new Point();
+                        p0.X = t.GetTexturePoint(0).X;
+                        p0.Y = t.GetTexturePoint(0).Y;
+                        Point p1 = new Point();
+                        p1.X = t.GetTexturePoint(1).X;
+                        p1.Y = t.GetTexturePoint(1).Y;
+                        Point p2 = new Point();
+                        p2.X = t.GetTexturePoint(2).X;
+                        p2.Y = t.GetTexturePoint(2).Y;
+                        mesh[i].TextureCoordinates.Add(p0);
+                        mesh[i].TextureCoordinates.Add(p1);
+                        mesh[i].TextureCoordinates.Add(p2);
+
                         mesh[i].Normals.Add(t.GetNormal(0));
                         mesh[i].Normals.Add(t.GetNormal(1));
                         mesh[i].Normals.Add(t.GetNormal(2));
@@ -119,20 +137,88 @@ namespace WPF3D//так же сделать манипулируемый ист�
                         mesh[i].TriangleIndices.Add(0 + count);
                         mesh[i].TriangleIndices.Add(1 + count);
                         mesh[i].TriangleIndices.Add(2 + count);
+
+                        //mesh[i].
                         
                         count += 3;
+                        SolidColorBrush brush1 = new SolidColorBrush();
+                    //    brush.Color = color;
+                    //    material = new DiffuseMaterial(brush);
+                        Material material = new DiffuseMaterial(brush1);
+                        if (setColor == false)
+                        {
+                            if (t.MyMtl != null)
+                            {
+                                if (t.MyMtl.Path.Length > 0)
+                                {
+                                    ImageBrush brush = new ImageBrush(new BitmapImage(new Uri(t.MyMtl.Path, UriKind.Relative)));
+                                    //brush.ImageSource = t.MyMtl.Path;
+                                    //brush.
+                                    material = new DiffuseMaterial(brush);
+
+                                    GeometryModel3D geometry = new GeometryModel3D(mesh[i], material);
+                                    model.Add(new ModelUIElement3D());
+                                    model[model.Count - 1].Model = geometry;
+                                    SetEvents(model[model.Count - 1]);
+
+                                    viewport.Children.Add(model[model.Count - 1]);
+                                }
+                                else
+                                {
+                                    SolidColorBrush brush = new SolidColorBrush();
+                                    brush.Color = Color.FromArgb(0,(byte)(t.MyMtl.Kd.X*255), (byte)(t.MyMtl.Kd.Y*255), (byte)(t.MyMtl.Kd.Z*255));
+                                    material = new DiffuseMaterial(brush);
+
+                                    GeometryModel3D geometry = new GeometryModel3D(mesh[i], material);
+                                    model.Add(new ModelUIElement3D());
+                                    model[model.Count - 1].Model = geometry;
+                                    SetEvents(model[model.Count - 1]);
+
+                                    viewport.Children.Add(model[model.Count - 1]);
+                                }
+                            }
+                            
+                        }
+                        else
+                        {
+                        }
+
+                       
+
+
+
                     }
+                    //Material material;
+                    //if (setColor==false)
+                    //{
+                    //    ImageBrush brush = new ImageBrush();
+                    //    brush.ImageSource = 
+                    //    material = new DiffuseMaterial(brush);
+                    //}
+                    //else
+                    //{
+                    //    SolidColorBrush brush = new SolidColorBrush();
+                    //    brush.Color = color;
+                    //    material = new DiffuseMaterial(brush);
+                    //}
+                    //    GeometryModel3D geometry = new GeometryModel3D(mesh[i], material);
+                    //    model[i] = new ModelUIElement3D();
+                    //    model[i].Model = geometry;
+                    //    SetEvents(model[i]);
 
-                    SolidColorBrush brush = new SolidColorBrush();
-                    brush.Color = color;
-                    Material material = new DiffuseMaterial(brush);
+                    //viewport.Children.Add(model[i]);
 
-                    GeometryModel3D geometry = new GeometryModel3D(mesh[i], material);
-                    model[i] = new ModelUIElement3D();
-                    model[i].Model = geometry;
-                    SetEvents(model[i]);
-
-                    viewport.Children.Add(model[i]);
+                    if (setColor == true)
+                    {
+                        SolidColorBrush brush = new SolidColorBrush();
+                        brush.Color = color;
+                        Material material = new DiffuseMaterial(brush);
+                        GeometryModel3D geometry = new GeometryModel3D(mesh[i], material);
+                        model.Add(new ModelUIElement3D());
+                        model[model.Count-1].Model = geometry;
+                        SetEvents(model[model.Count - 1]);
+                        viewport.Children.Add(model[model.Count - 1]);
+                    }
                 }
             }
             
@@ -227,12 +313,13 @@ namespace WPF3D//так же сделать манипулируемый ист�
         public void SetColor(Color color)
         {
             this.color = color;
+            setColor = true;
         }
 
         public void Clone(Object3D newObject)
         {
             newObject.mesh = new MeshGeometry3D[arrayModel.Length];
-            newObject.model = new ModelUIElement3D[arrayModel.Length];
+            //newObject.model = List<ModelUIElement3D>();
             newObject.arrayModel = new _3DModel[arrayModel.Length];
             for (int i = 0; i < arrayModel.Length; i++)
             {
@@ -245,7 +332,11 @@ namespace WPF3D//так же сделать манипулируемый ист�
                     Vector3D v1 = new Vector3D(a.GetNormal(0).X, a.GetNormal(0).Y, a.GetNormal(0).Z);
                     Vector3D v2 = new Vector3D(a.GetNormal(1).X, a.GetNormal(1).Y, a.GetNormal(1).Z);
                     Vector3D v3 = new Vector3D(a.GetNormal(2).X, a.GetNormal(2).Y, a.GetNormal(2).Z);
-                    Triangle t = new Triangle(a1,a2,a3,v1,v2,v3);
+                    Point3D t1 = new Point3D(a.GetTexturePoint(0).X, a.GetTexturePoint(0).Y, a.GetTexturePoint(0).Z);
+                    Point3D t2 = new Point3D(a.GetTexturePoint(1).X, a.GetTexturePoint(1).Y, a.GetTexturePoint(1).Z);
+                    Point3D t3 = new Point3D(a.GetTexturePoint(2).X, a.GetTexturePoint(2).Y, a.GetTexturePoint(2).Z); 
+                    Triangle t = new Triangle(a1, a2, a3, v1, v2, v3, t1 ,t2, t3);
+                    t.MyMtl = a.MyMtl;
                     newObject.arrayModel[i].AddTriangle(t);
                 }
             }

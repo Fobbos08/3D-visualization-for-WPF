@@ -10,6 +10,7 @@ namespace Parser.Parcers
     public class Parcer : IParcer
     {
         private IParcer parcer;
+        //private IParcer 
 
         public Parcer(IParcer parcer)
         {

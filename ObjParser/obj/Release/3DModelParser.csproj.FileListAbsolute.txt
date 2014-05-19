@@ -1,0 +1,7 @@
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\bin\Release\3DModelParser.dll
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\bin\Release\3DModelParser.pdb
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\bin\Release\Model.dll
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\bin\Release\Model.pdb
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\obj\Release\3DModelParser.csprojResolveAssemblyReference.cache
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\obj\Release\3DModelParser.dll
+C:\Users\Эмиль\Documents\3D-visualization-for-WPF-new\ObjParser\obj\Release\3DModelParser.pdb

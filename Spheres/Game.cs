@@ -39,7 +39,7 @@ namespace Spheres
         public Game(Viewport3D v)
         {
             viewport = v;
-            baseObject = new Object3D("teapot.obj");
+            baseObject = new Object3D("4.obj");//teapot
         }
 
         public void Reset()
@@ -95,7 +95,7 @@ namespace Spheres
             v.X = rnd.Next(-450, 450);
             v.Z = -200;
             v.Y = 200;
-            actualObjects[actualObjects.Count - 1].SetColor(Color.FromRgb((byte)rnd.Next(0, 255), (byte)rnd.Next(0, 255), (byte)rnd.Next(0, 255)));
+            //actualObjects[actualObjects.Count - 1].SetColor(Color.FromRgb((byte)rnd.Next(0, 255), (byte)rnd.Next(0, 255), (byte)rnd.Next(0, 255)));
             actualObjects[actualObjects.Count - 1].Draw(viewport);
             actualObjects[actualObjects.Count - 1].RotateRelative(-90,0,0);
             actualObjects[actualObjects.Count - 1].Move(v);
