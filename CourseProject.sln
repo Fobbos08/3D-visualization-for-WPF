@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3DModelParser", "ObjParser\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spheres", "Spheres\Spheres.csproj", "{03F95D4B-BCD9-4B0E-AAAD-A3906153D1B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space", "Space\Space.csproj", "{3FEE8118-E79F-4915-98ED-2AE7F2DA3FA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{03F95D4B-BCD9-4B0E-AAAD-A3906153D1B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03F95D4B-BCD9-4B0E-AAAD-A3906153D1B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03F95D4B-BCD9-4B0E-AAAD-A3906153D1B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FEE8118-E79F-4915-98ED-2AE7F2DA3FA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FEE8118-E79F-4915-98ED-2AE7F2DA3FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FEE8118-E79F-4915-98ED-2AE7F2DA3FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FEE8118-E79F-4915-98ED-2AE7F2DA3FA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

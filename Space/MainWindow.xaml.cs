@@ -12,31 +12,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF3D;
 
-namespace Spheres
+namespace Space
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        Game g;
+        SpaceAnimator s;
         public MainWindow()
         {
             InitializeComponent();
             //this.Background = new ImageBrush(new BitmapImage(new Uri("kosmos-fon-6.png")));
-            g = new Game(mainViewport);
-            g.RefreshScore += RefreshScore;
-            g.Start();
-            
-        }
+            //s = new SpaceAnimator(mainViewport);
+            //ImageBrush myBrush = new ImageBrush();
+            //Image image = new Image();
+            //image.Source = new BitmapImage(
+            //    new Uri(
+            //       "kosmos-fon-6.jpg", UriKind.Relative));
+            //myBrush.ImageSource = image.Source;
+            //Grid grid = new Grid();
+            //grid.Background = myBrush;
+            //this.AddChild(grid);
 
-        private void RefreshScore(object sender, EventArgs e)
-        {
-            Score.Content = (sender as Game).GameScore;
-        }
 
-         
+        }
     }
 }

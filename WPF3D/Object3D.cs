@@ -111,8 +111,11 @@ namespace WPF3D//так же сделать манипулируемый ист�
                 {
                     mesh[i] = new MeshGeometry3D();
                     Vector3D vv = new Vector3D(-1,-1,-1);
+                    Triangle tt = new Triangle(new Point3D(),new Point3D(),new Point3D()); ;
                     foreach (var t in arrayModel[i].Triangles)
                     {
+                        tt = t;
+
                         mesh[i].Positions.Add(t.GetPoint(0));
                         mesh[i].Positions.Add(t.GetPoint(1));
                         mesh[i].Positions.Add(t.GetPoint(2));
@@ -141,48 +144,53 @@ namespace WPF3D//так же сделать манипулируемый ист�
                         //mesh[i].
                         
                         count += 3;
-                        SolidColorBrush brush1 = new SolidColorBrush();
-                    //    brush.Color = color;
-                    //    material = new DiffuseMaterial(brush);
-                        Material material = new DiffuseMaterial(brush1);
-                        if (setColor == false)
-                        {
-                            if (t.MyMtl != null)
-                            {
-                                if (t.MyMtl.Path.Length > 0)
-                                {
-                                    ImageBrush brush = new ImageBrush(new BitmapImage(new Uri(t.MyMtl.Path, UriKind.Relative)));
-                                    //brush.ImageSource = t.MyMtl.Path;
-                                    //brush.
-                                    material = new DiffuseMaterial(brush);
 
-                                    GeometryModel3D geometry = new GeometryModel3D(mesh[i], material);
-                                    model.Add(new ModelUIElement3D());
-                                    model[model.Count - 1].Model = geometry;
-                                    SetEvents(model[model.Count - 1]);
 
-                                    viewport.Children.Add(model[model.Count - 1]);
-                                }
-                                else
-                                {
-                                    SolidColorBrush brush = new SolidColorBrush();
-                                    brush.Color = Color.FromArgb(0,(byte)(t.MyMtl.Kd.X*255), (byte)(t.MyMtl.Kd.Y*255), (byte)(t.MyMtl.Kd.Z*255));
-                                    material = new DiffuseMaterial(brush);
 
-                                    GeometryModel3D geometry = new GeometryModel3D(mesh[i], material);
-                                    model.Add(new ModelUIElement3D());
-                                    model[model.Count - 1].Model = geometry;
-                                    SetEvents(model[model.Count - 1]);
 
-                                    viewport.Children.Add(model[model.Count - 1]);
-                                }
-                            }
+                        ////////
+                    //    SolidColorBrush brush1 = new SolidColorBrush();
+                    ////    brush.Color = color;
+                    ////    material = new DiffuseMaterial(brush);
+                    //    Material material = new DiffuseMaterial(brush1);
+                    //    if (setColor == false)
+                    //    {
+                    //        if (t.MyMtl != null)
+                    //        {
+                    //            if (t.MyMtl.Path.Length > 0)
+                    //            {
+                    //                ImageBrush brush = new ImageBrush(new BitmapImage(new Uri(t.MyMtl.Path, UriKind.Relative)));
+                    //                //brush.ImageSource = t.MyMtl.Path;
+                    //                //brush.
+                    //                material = new DiffuseMaterial(brush);
+
+                    //                GeometryModel3D geometry = new GeometryModel3D(mesh[i], material);
+                    //                model.Add(new ModelUIElement3D());
+                    //                model[model.Count - 1].Model = geometry;
+                    //                SetEvents(model[model.Count - 1]);
+
+                    //                viewport.Children.Add(model[model.Count - 1]);
+                    //            }
+                    //            else
+                    //            {
+                    //                SolidColorBrush brush = new SolidColorBrush();
+                    //                brush.Color = Color.FromArgb(0,(byte)(t.MyMtl.Kd.X*255), (byte)(t.MyMtl.Kd.Y*255), (byte)(t.MyMtl.Kd.Z*255));
+                    //                material = new DiffuseMaterial(brush);
+
+                    //                GeometryModel3D geometry = new GeometryModel3D(mesh[i], material);
+                    //                model.Add(new ModelUIElement3D());
+                    //                model[model.Count - 1].Model = geometry;
+                    //                SetEvents(model[model.Count - 1]);
+
+                    //                viewport.Children.Add(model[model.Count - 1]);
+                    //            }
+                    //        }
                             
-                        }
-                        else
-                        {
-                        }
-
+                    //    }
+                    //    else
+                    //    {
+                    //    }
+                        ////////////
                        
 
 
@@ -208,11 +216,56 @@ namespace WPF3D//так же сделать манипулируемый ист�
 
                     //viewport.Children.Add(model[i]);
 
+
+                    SolidColorBrush brush1 = new SolidColorBrush();
+                    //    brush.Color = color;
+                    //    material = new DiffuseMaterial(brush);
+                        Material material = new DiffuseMaterial(brush1);
+                        
+                        if (setColor == false)
+                        {
+                            if (tt.MyMtl != null)
+                            {
+                                if (tt.MyMtl.Path.Length > 0)
+                                {
+                                    ImageBrush brush = new ImageBrush(new BitmapImage(new Uri(tt.MyMtl.Path, UriKind.Relative)));
+                                    //brush.ImageSource = t.MyMtl.Path;
+                                    //brush.
+                                    material = new DiffuseMaterial(brush);
+
+                                    GeometryModel3D geometry = new GeometryModel3D(mesh[i], material);
+                                    model.Add(new ModelUIElement3D());
+                                    model[model.Count - 1].Model = geometry;
+                                    SetEvents(model[model.Count - 1]);
+
+                                    viewport.Children.Add(model[model.Count - 1]);
+                                }
+                                else
+                                {
+                                    SolidColorBrush brush = new SolidColorBrush();
+                                    brush.Color = Color.FromArgb(0, (byte)(tt.MyMtl.Kd.X * 255), (byte)(tt.MyMtl.Kd.Y * 255), (byte)(tt.MyMtl.Kd.Z * 255));
+                                    material = new DiffuseMaterial(brush);
+
+                                    GeometryModel3D geometry = new GeometryModel3D(mesh[i], material);
+                                    model.Add(new ModelUIElement3D());
+                                    model[model.Count - 1].Model = geometry;
+                                    SetEvents(model[model.Count - 1]);
+
+                                    viewport.Children.Add(model[model.Count - 1]);
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                        }
+
+
                     if (setColor == true)
                     {
                         SolidColorBrush brush = new SolidColorBrush();
                         brush.Color = color;
-                        Material material = new DiffuseMaterial(brush);
+                        material = new DiffuseMaterial(brush);
                         GeometryModel3D geometry = new GeometryModel3D(mesh[i], material);
                         model.Add(new ModelUIElement3D());
                         model[model.Count-1].Model = geometry;

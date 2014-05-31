@@ -16,7 +16,7 @@ namespace Spheres
     public class Game
     {
         private List<Object3D> actualObjects = new List<Object3D>();
-        private Object3D baseObject;
+        private List<Object3D> baseObject = new List<Object3D>();
         private Viewport3D viewport;
         private DispatcherTimer timer = new DispatcherTimer();
         private int createTime = 0;
@@ -31,15 +31,19 @@ namespace Spheres
 
         protected virtual void RefreshScoreEventFunction()
         {
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 30);
+            
             Score handler = RefreshScore;
             if (RefreshScore != null) handler(this, null);
         }
 
         public Game(Viewport3D v)
         {
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 15);
             viewport = v;
-            baseObject = new Object3D("4.obj");//teapot
+            baseObject.Add(new Object3D("earth.obj"));
+            baseObject.Add(new Object3D("mars.obj"));
+            baseObject.Add(new Object3D("asteroid.obj"));
+            //baseObject.RotateRelative(180, 0, 0);
         }
 
         public void Reset()
@@ -55,8 +59,8 @@ namespace Spheres
 
         private void TimerFunction(object sender, EventArgs e)
         {
-            time+=30;
-            if (time - createTime > 1000)
+            time+=15;
+            if (time - createTime > 3000)
             {
                 createTime = time;
                 Create();
@@ -90,14 +94,14 @@ namespace Spheres
 
         private void Create()
         {
-            actualObjects.Add(new Object3D(baseObject));
+            actualObjects.Add(new Object3D(baseObject[rnd.Next(0,baseObject.Count)]));
             
             v.X = rnd.Next(-450, 450);
             v.Z = -200;
             v.Y = 200;
             //actualObjects[actualObjects.Count - 1].SetColor(Color.FromRgb((byte)rnd.Next(0, 255), (byte)rnd.Next(0, 255), (byte)rnd.Next(0, 255)));
             actualObjects[actualObjects.Count - 1].Draw(viewport);
-            actualObjects[actualObjects.Count - 1].RotateRelative(-90,0,0);
+            actualObjects[actualObjects.Count - 1].RotateRelative(90,0,0);
             actualObjects[actualObjects.Count - 1].Move(v);
             actualObjects[actualObjects.Count - 1].MouseDownEvent += Click;
         }
@@ -106,7 +110,7 @@ namespace Spheres
         {
             GameScore += 10;
             (sender as Object3D).Hide(viewport);
-            for (int i = 0; i < actualObjects.Count; i++ )
+            for (int i = 0; i < actualObjects.Count; i++)
             {
                 if (sender == actualObjects[i])
                 {
