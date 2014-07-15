@@ -7,19 +7,19 @@ using Model;
 
 namespace Parser.Parcers
 {
-    public class Parcer : IParcer
+    public class Parser : IParser
     {
-        private IParcer parcer;
+        private IParser parser;
         //private IParcer 
 
-        public Parcer(IParcer parcer)
+        public Parser(IParser parser)
         {
-            this.parcer = parcer;
+            this.parser = parser;
         }
 
-        public _3DModel[] Parce(List<List<string>> model)
+        public _3DModel[] Parse(List<List<string>> model)
         {
-            return this.parcer.Parce(model);
+            return this.parser.Parse(model);
         }
     }
 }

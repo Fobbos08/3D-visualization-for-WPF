@@ -7,8 +7,8 @@ using Model;
 
 namespace Parser
 {
-    public interface IParcer
+    public interface IParser
     {
-        _3DModel[] Parce(List<List<string>> model);
+        _3DModel[] Parse(List<List<string>> model);
     }
 }

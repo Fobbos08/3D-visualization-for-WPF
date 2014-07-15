@@ -8,14 +8,14 @@ using Model;
 
 namespace Parser.Parcers
 {
-    public class ObjParcer : IParcer
+    public class ObjParcer : IParser
     {
         private _3DModel[] models;
         private List<Point3D> points;
         private List<Point3D> texturePoints;
         private List<Vector3D> normals;
         
-        public _3DModel[] Parce(List<List<string>> model)/////селать вызов mtl/ отличный от вызова из this, будет правильнее
+        public _3DModel[] Parse(List<List<string>> model)/////селать вызов mtl/ отличный от вызова из this, будет правильнее
         {
             int start;
             string[] buff = { "" };

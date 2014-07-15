@@ -7,24 +7,24 @@ using Model;
 
 namespace Parser
 {
-    public class Parcer
+    public class Parser
     {
-        private IParcer parcer;
+        private IParser parser;
         private IReader reader;
 
         private IReader mtlReader;
         private Parcers.MtlParser mtlParser;
 
 
-        public _3DModel[] Parce(string path)
+        public _3DModel[] Parse(string path)
         {
             reader = new Readers.Reader(new Readers.ObjReader());
-            parcer = new Parcers.Parcer(new Parcers.ObjParcer());
+            parser = new Parcers.Parser(new Parcers.ObjParcer());
             List<List<string>> r = reader.Read(path);
             mtlParser = new Parcers.MtlParser();
             mtlReader = new Readers.Reader(new Readers.MtlReader());
             string[] buff = new string[2];
-            Model._3DModel[] models = parcer.Parce(r);
+            Model._3DModel[] models = parser.Parse(r);
             if (r[0].Count != 0)
                 buff = r[0][0].Split(' ');
             if (buff[0] == "mtllib")

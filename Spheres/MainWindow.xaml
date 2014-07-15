@@ -1,7 +1,7 @@
-﻿<Window x:Class="Spheres.MainWindow"
+﻿<Window x:Name="Space" x:Class="Spheres.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="494.813" Width="801.119">
+        Title="Space" Height="494.813" Width="801.119">
     <Window.Background>
         <ImageBrush 
         ImageSource="pack://application:,,,/kosmos-fon-6.jpg"/>

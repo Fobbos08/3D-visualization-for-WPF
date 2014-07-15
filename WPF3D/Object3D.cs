@@ -48,8 +48,9 @@ namespace WPF3D//так же сделать манипулируемый ист�
 
         public Object3D(string path)//продумать на принятие готового объекта
         {
-            Parcer parcer = new Parcer();
-            arrayModel = parcer.Parce(path);
+
+            Parser.Parser parser = new Parser.Parser();
+            arrayModel = parser.Parse(path);
             mesh = new MeshGeometry3D[arrayModel.Length];
             //model = new ModelUIElement3D[arrayModel.Length];
             model = new List<ModelUIElement3D>();
